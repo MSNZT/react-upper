@@ -1,0 +1,9 @@
+@import './reset';
+@import './themes/light';
+@import './themes/dark';
+
+.app {
+  background: var(--background);
+  color: var(--color-primary);
+  min-height: 100vh;
+}
