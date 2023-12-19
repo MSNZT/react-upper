@@ -16,5 +16,22 @@ jobs:
         with:
           node-version: '20.10.0'
       - name: install modules
-        run: yarn install
-
+        run: yarn
+      - name: build production project
+        run: yarn build:prod
+        if: always()
+      - name: linting ts files
+        run: yarn lint:ts
+        if: always()
+      - name: linting scss files
+        run: yarn lint:scss
+        if: always()
+      - name: unit testing
+        run: yarn test:unit
+        if: always()
+      - name: build storybook
+        run: yarn storybook:build
+        if: always()
+      - name: screenshot testing
+        run: yarn test:ui:ci
+        if: always()
