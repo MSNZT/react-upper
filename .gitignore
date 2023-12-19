@@ -3,5 +3,3 @@ build
 .idea
 .yarn/*
 /storybook-static
-.loki/report.html
-.loki/report.json
