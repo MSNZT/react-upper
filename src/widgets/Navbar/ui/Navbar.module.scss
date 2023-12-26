@@ -5,9 +5,13 @@
 	background-color: var(--inverted-bg-color);
 }
 
-.links {
+.items {
 	display: flex;
-	padding: 20px;
-	gap: 15px;
+	align-items: center;
+	padding: 0 20px;
 	margin-left: auto;
+}
+
+.btn {
+	color: var(--inverted-color-primary);
 }

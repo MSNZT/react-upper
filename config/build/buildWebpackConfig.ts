@@ -1,4 +1,4 @@
-import type webpack from 'webpack'
+import webpack from 'webpack'
 import { BuildOptions } from './types/config'
 import { buildDevServer } from './buildDevServer'
 import { buildPlugins } from './buildPlugins'

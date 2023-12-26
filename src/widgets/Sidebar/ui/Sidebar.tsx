@@ -1,16 +1,16 @@
-import {classNames} from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 import cls from './Sidebar.module.scss'
-import {useState} from 'react'
-import {Button, ButtonSize, ButtonTheme} from '@/shared/ui/Button/ui/Button'
-import {ThemeSwitcher} from '@/widgets/ThemeSwitcher'
-import {LangSwitcher} from '@/widgets/LangSwitcher'
-import {AppLink, AppLinkTheme} from "@/shared/ui/AppLink/AppLink";
-import {RoutePath} from "@/shared/config/routeConfig/routeConfig";
-import {useTranslation} from "react-i18next";
+import { useState } from 'react'
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/ui/Button'
+import { ThemeSwitcher } from '@/widgets/ThemeSwitcher'
+import { LangSwitcher } from '@/widgets/LangSwitcher'
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { useTranslation } from 'react-i18next'
 
-import HomeIcon from "@/shared/assets/icons/home.svg"
-import AboutIcon from "@/shared/assets/icons/about.svg"
+import HomeIcon from '@/shared/assets/icons/home.svg'
+import AboutIcon from '@/shared/assets/icons/about.svg'
 interface SidebarProps {
   className?: string
 }
@@ -22,8 +22,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
     setCollapsed(prev => !prev)
   }
   return (
-    <div className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}
-         data-testid='sidebar-test'
+    <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+      data-testid='sidebar-test'
     >
       <Button
         data-testid="sidebar-toggle"
@@ -31,6 +31,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
         className={cls.collapsedBtn}
         theme={ButtonTheme.BACKGROUND_INVERTED}
         size={ButtonSize.XL}
+        square
       >
         {collapsed ? '>' : '<'}
       </Button>
@@ -54,7 +55,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </div>
       <div className={classNames(cls.switchers, {}, [])}>
         <ThemeSwitcher/>
-        <LangSwitcher short={collapsed} />
+        <LangSwitcher short={collapsed} className={cls.lang} />
       </div>
     </div>
   )

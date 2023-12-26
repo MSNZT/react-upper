@@ -1,6 +1,6 @@
 import type webpack from 'webpack'
 import { BuildOptions } from './types/config'
-import {cssLoader} from "./Loaders/cssLoader";
+import { cssLoader } from './Loaders/cssLoader'
 
 export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
   const { isDev } = options

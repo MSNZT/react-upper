@@ -25,6 +25,6 @@ export function buildPlugins (options: BuildOptions): webpack.Configuration['plu
       openAnalyzer: false
     }))
   }
-  
+
   return plugins
 }

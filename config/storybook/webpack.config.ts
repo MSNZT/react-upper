@@ -1,15 +1,15 @@
-import webpack, {RuleSetRule} from 'webpack';
-import path from 'path';
-import {BuildPath} from "../build/types/config";
-import {cssLoader} from "../build/Loaders/cssLoader";
+import webpack, { RuleSetRule } from 'webpack'
+import path from 'path'
+import { BuildPath } from '../build/types/config'
+import { cssLoader } from '../build/Loaders/cssLoader'
 
-export default ({config}: { config: webpack.Configuration }) => {
+export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPath = {
     output: '',
     html: '',
     entry: '',
-    src: path.resolve(__dirname, '..', '..', 'src'),
-  };
+    src: path.resolve(__dirname, '..', '..', 'src')
+  }
   config.resolve = {
     extensions: ['.tsx', '.ts', '.js'],
     preferAbsolute: true,
@@ -19,23 +19,24 @@ export default ({config}: { config: webpack.Configuration }) => {
       '@': paths.src
     }
   }
-  
+  // @ts-expect-error
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-    if (/svg/.test(rule.test as string)) {
+    if ((rule.test as string).includes('svg')) {
       return {
         ...rule,
         exclude: /\.svg$/i
-      };
+      }
     }
-    
-    return rule;
-  });
-  
+
+    return rule
+  })
+// @ts-expect-error
   config.module.rules.push({
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  });
-  config.module.rules.push(cssLoader(true));
-  
-  return config;
-};
+    use: ['@svgr/webpack']
+  })
+  // @ts-expect-error
+  config.module.rules.push(cssLoader(true))
+
+  return config
+}
