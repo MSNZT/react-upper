@@ -1,18 +1,18 @@
-import {classNames} from "@/shared/lib/classNames/classNames";
-import {useTranslation} from "react-i18next";
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { useTranslation } from 'react-i18next'
 
-import {Input} from "@/shared/ui/Input";
-import {Button} from "@/shared/ui/Button";
+import { Input } from '@/shared/ui/Input'
+import { Button } from '@/shared/ui/Button'
 
-import cls from "./LoginForm.module.scss"
-import {ButtonTheme} from "@/shared/ui/Button/ui/Button";
+import cls from './LoginForm.module.scss'
+import { ButtonTheme } from '@/shared/ui/Button/ui/Button'
 
 interface LoginFormProps {
   className?: string
 }
 
-export const LoginForm = ({className}: LoginFormProps) => {
-  const {t} = useTranslation()
+export const LoginForm = ({ className }: LoginFormProps) => {
+  const { t } = useTranslation()
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Input
@@ -31,5 +31,5 @@ export const LoginForm = ({className}: LoginFormProps) => {
         {t('Войти')}
       </Button>
     </div>
-  );
-};
+  )
+}

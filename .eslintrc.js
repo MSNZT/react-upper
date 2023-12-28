@@ -44,10 +44,14 @@ module.exports = {
     indent: [2, 2],
     '@typescript-eslint/prefer-nullish-coalescing': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/strict-boolean-expressions': 'warn',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/ban-ts-comment': 'warn',
+    '@typescript-eslint/no-unsafe-argument': 'warn',
+    '@typescript-eslint/no-non-null-assertion': 'warn',
     'react/jsx-filename-extension': [
       2, { extensions: ['.js', '.jsx', '.tsx'] }
     ],
+    'react/display-name': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'warn',

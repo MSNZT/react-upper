@@ -1,5 +1,4 @@
-import {StorybookConfig} from '@storybook/react-webpack5'
-import webpack from 'webpack';
+import { StorybookConfig } from '@storybook/react-webpack5'
 
 const config: StorybookConfig = {
   stories: ['../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -28,6 +27,6 @@ const config: StorybookConfig = {
   }),
   docs: {
     autodocs: 'tag'
-  },
+  }
 }
 export default config
