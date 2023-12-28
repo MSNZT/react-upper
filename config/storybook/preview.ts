@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react'
+import { Preview } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext'
 

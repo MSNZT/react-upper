@@ -1,4 +1,4 @@
-export interface BuildPath {
+export interface BuildPaths {
   entry: string
   output: string
   html: string
@@ -9,7 +9,7 @@ export type BuildMode = 'production' | 'development'
 
 export interface BuildOptions {
   mode: BuildMode
-  path: BuildPath
+  path: BuildPaths
   isDev: boolean
   port: number
 }

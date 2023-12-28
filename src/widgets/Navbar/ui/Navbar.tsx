@@ -6,6 +6,8 @@ import {useTranslation} from 'react-i18next'
 import {useState} from 'react'
 import {Modal} from '@/shared/ui/Modal'
 import {ButtonTheme} from "@/shared/ui/Button/ui/Button";
+import {Input} from "@/shared/ui/Input";
+import {LoginModal} from "@/features/authByUsername";
 
 interface NavbarProps {
   className?: string
@@ -34,7 +36,8 @@ export const Navbar = ({ className }: NavbarProps) => {
           {t('Войти')}
         </Button>
       </div>
-      <Modal isOpen={isOpenModal} onClose={modalClose}/>
+      
+      <LoginModal isOpen={isOpenModal} onClose={modalClose} />
     </div>
   )
 }

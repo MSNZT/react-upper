@@ -1,5 +1,4 @@
 name: linting, testing, building
-run-name: ${{ github.actor }} UR
 on:
   push:
     branches:
@@ -12,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20.10.0'
       - name: install modules
         run: yarn
       - name: build production project

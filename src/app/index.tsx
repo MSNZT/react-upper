@@ -7,6 +7,7 @@ import { AppRouter } from '@/app/providers/router'
 
 export const App: FC = () => {
   const { theme } = useTheme()
+  document.body.className = theme;
 
   return (
     <>

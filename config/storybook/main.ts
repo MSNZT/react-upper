@@ -1,4 +1,5 @@
-import type { StorybookConfig } from '@storybook/react-webpack5'
+import {StorybookConfig} from '@storybook/react-webpack5'
+import webpack from 'webpack';
 
 const config: StorybookConfig = {
   stories: ['../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -25,12 +26,6 @@ const config: StorybookConfig = {
       }
     }
   }),
-  // webpackFinal: async (config) => {
-  //   return {
-  //     ...config,
-  //     module: { ...config.module, rules: [...config.module.rules, ...custom.module.rules] },
-  //   };
-  // },
   docs: {
     autodocs: 'tag'
   },

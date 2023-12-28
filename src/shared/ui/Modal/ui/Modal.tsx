@@ -2,24 +2,34 @@ import { classNames, type Mods } from '@/shared/lib/classNames/classNames'
 
 import cls from './Modal.module.scss'
 import { Portal } from '@/shared/ui/Portal'
-import { useCallback, useEffect } from 'react'
+import {ReactNode, useCallback, useEffect, useState} from 'react'
 import {useTheme} from "@/app/providers/ThemeProvider";
 
 interface ModalProps {
   className?: string
   isOpen?: boolean
-  onClose?: () => void
+  onClose?: () => void,
+  children?: ReactNode,
+  lazy?: boolean
 }
 
 export const Modal = (props: ModalProps) => {
   const {
     className,
     isOpen,
-    onClose
+    onClose,
+    children,
+    lazy
   } = props
   
-  const {theme} = useTheme();
-
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true)
+    }
+  }, [isOpen]);
+  
   const closeHandler = useCallback(() => {
     if (onClose) onClose()
   }, [onClose])
@@ -43,15 +53,17 @@ export const Modal = (props: ModalProps) => {
   const mods: Mods = {
     [cls.showModal]: isOpen
   }
+  
+  if (lazy && !isMounted) {
+    return null
+  }
 
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className, theme])}>
+      <div className={classNames(cls.Modal, mods, [className])}>
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.modalContent} onClick={e => { e.stopPropagation() }}>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
-            {/* eslint-disable-next-line max-len */}
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque beatae dolore fuga fugiat ipsum iure nam neque non nulla, recusandae saepe soluta? Assumenda cumque deserunt dicta modi quas temporibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque beatae dolore fuga fugiat ipsum iure nam neque non nulla, recusandae saepe soluta? Assumenda cumque deserunt dicta modi quas temporibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque beatae dolore fuga fugiat ipsum iure nam neque non nulla, recusandae saepe soluta? Assumenda cumque deserunt dicta modi quas temporibus!
+            {children}
           </div>
         </div>
       </div>
