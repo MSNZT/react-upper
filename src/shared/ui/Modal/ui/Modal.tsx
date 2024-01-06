@@ -56,6 +56,8 @@ export const Modal = (props: ModalProps) => {
   if (lazy && !isMounted) {
     return null
   }
+  
+  29
 
   return (
     <Portal>

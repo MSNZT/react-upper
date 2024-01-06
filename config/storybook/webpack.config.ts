@@ -20,24 +20,23 @@ export default async ({ config }: { config: webpack.Configuration }) => {
       '@': paths.src
     }
   }
-  // @ts-expect-error
-  // need
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-    if ((rule.test as string).includes('svg')) {
-      return { ...rule, exclude: /\.svg$/i }
+  
+  config.module.rules = config.module.rules.map((rule: RuleSetRule | '...') => {
+    // if (rule !== '...' && rule.test instanceof RegExp && rule.test.toString().includes('svg')) {
+    //   return { ...rule, exclude: /\.svg$/i }
+    // }
+    if(rule && typeof rule !== 'string' && '...') {
+      return {...rule, exclude: /\.svg$/i}
     }
-
     return rule
-  })
-
-  // @ts-expect-error
-  // need
+  }
+  )
+  
   config.module.rules.push({
-    test: /\.svg$/,
+    test: /\.svg$/i,
     use: ['@svgr/webpack']
   })
-  // @ts-expect-error
-  // need
+
   config.module.rules.push(cssLoader(true))
 
   return config

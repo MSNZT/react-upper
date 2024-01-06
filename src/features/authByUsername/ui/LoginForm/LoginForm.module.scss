@@ -1,7 +1,15 @@
 .LoginForm {
+	width: 400px;
+}
+
+.form {
 	display: flex;
 	flex-direction: column;
-	width: 400px;
+}
+
+.formName {
+	margin-bottom: 15px;
+	text-align: center;
 }
 
 .input {

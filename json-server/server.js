@@ -16,14 +16,6 @@ server.use(async (req, res, next) => {
   next();
 })
 
-server.use((req, res, next) => {
-  if (!req.headers.authorization) {
-    return res.status(403).json({message: 'Не авторизован'})
-  }
-
-  next()
-})
-
 server.post('/login', (req, res) => {
   try {
     const {username, password} = req.body;
@@ -42,6 +34,14 @@ server.post('/login', (req, res) => {
     console.log(e)
     return res.status(500).json({ message: e.message });
   }
+})
+
+server.use((req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({message: 'Не авторизован'})
+  }
+
+  next()
 })
 
 server.use(router)
